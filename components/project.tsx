@@ -2,9 +2,9 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-import { Project } from "@/types";
+import { Project as ProjectType } from "@/types";
 
-export default function Project({ title, description, tags, imageUrl }: Project) {
+export default function Project({ title, description, tags, imageUrl }: ProjectType) {
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
