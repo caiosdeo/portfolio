@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
@@ -12,9 +13,18 @@ import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import { useActiveSectionContext } from "@/hooks/use-active-section-context";
 
-export default function Intro() {
+export default function Intro({
+  locale
+}: {
+  locale: string
+}) {
+
   const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
+  const t = useTranslations('IntroSection');
+
+  const CVLanguage = locale === 'en' ? "/CV.pdf" : "/CV-ptBR.pdf";
 
   const handleContactClick = () => {
     setActiveSection("Contact");
@@ -68,10 +78,14 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hello, I&apos;m Caio.</span> I&apos;m a junior{" "}
-        <span className="font-bold">full-stack developer</span> with{" "}
-        <span className="font-bold">2 years</span> of experience. I enjoy building{" "}
-        <span className="italic">sites & apps</span>.
+        {t.rich('intro', {
+          bold: (chunks) => (
+            <span className='font-bold'>{chunks}</span>
+          ),
+          italic: (chunks) => (
+            <span className='italic'>{chunks}</span>
+          )
+        })}
       </motion.h1>
 
       <motion.div
@@ -88,16 +102,16 @@ export default function Intro() {
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
           onClick={handleContactClick}
         >
-          Contact me here
+          {t('contactMeHere')}
           <BsArrowRight className="opacity-70 group-hover:translate-x-1.5 transition" />
         </Link>
         {/* Curriculum */}
         <a
           className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
-          href="/CV.pdf"
+          href={CVLanguage}
           download
         >
-          Download CV <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
+          {t('downloadCV')} <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
         </a>
         {/* LinkedIn */}
         <a

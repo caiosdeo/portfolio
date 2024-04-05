@@ -1,24 +1,38 @@
 "use client";
 
-import React from 'react'
+import React from 'react';
+import { useTranslations } from "next-intl";
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
-import { experiencesData } from "@/lib/data";
+import { Experience } from '@/types';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { useTheme } from '@/hooks/use-theme';
 
 import SectionHeading from "@/components/section-heading";
 
-export default function Experience() {
-  const { ref } = useSectionInView("Experience");
+export default function Experience({
+  locale
+}: {
+  locale: string
+}) {
+  const { ref } = useSectionInView(locale === 'br' ? "Experiência" : "Experience");
   const { theme } = useTheme();
+  const t = useTranslations('ExperienceSection');
+
+  let experiencesData;
+
+  if (locale === 'br') {
+    experiencesData = require("@/lib/data-br").experiencesData;
+  } else  {
+    experiencesData = require("@/lib/data").experiencesData;
+  }
 
   return (
     <section ref={ref} id="experience" className="scroll-mt-28 mb-28 sm:mb-40">
-      <SectionHeading>My experience</SectionHeading>
+      <SectionHeading>{t('heading')}</SectionHeading>
       <VerticalTimeline lineColor="">
-        {experiencesData.map((item, index) => (
+        {experiencesData.map((item: Experience, index: number) => (
           <React.Fragment key={index}>
             <VerticalTimelineElement
               visible={true}
