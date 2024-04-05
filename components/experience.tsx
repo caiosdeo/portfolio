@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
-import { Experience } from '@/types';
+import { Experience as ExperienceType } from '@/types';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { useTheme } from '@/hooks/use-theme';
 
@@ -32,7 +32,7 @@ export default function Experience({
     <section ref={ref} id="experience" className="scroll-mt-28 mb-28 sm:mb-40">
       <SectionHeading>{t('heading')}</SectionHeading>
       <VerticalTimeline lineColor="">
-        {experiencesData.map((item: Experience, index: number) => (
+        {experiencesData.map((item: ExperienceType, index: number) => (
           <React.Fragment key={index}>
             <VerticalTimelineElement
               visible={true}
