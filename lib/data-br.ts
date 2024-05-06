@@ -6,6 +6,7 @@ import takingnotesImg from "@/public/taking-notes.png";
 import pcbuildmonitorImg from "@/public/pc-build-monitor.png";
 import ecommerceadminImg from "@/public/e-commerce-admin.png";
 import postsCommentsApi from "@/public/post-comments-api.png";
+import buscard from "@/public/buscard.png";
 
 export const links = [
   {
@@ -62,6 +63,14 @@ export const experiencesData = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "Bus Card",
+    description:
+      "Um web app para gerenciamento de cartão de passagens de ônibus. Tem como finalidade permitir que seu usuário calcule recarga precisas e visualize o saldo de seu cartão.",
+    tags: ["Next.js", "TypeScript", "MongoDB", "Clerk", "Tailwind"],
+    imageUrl: buscard,
+    url: "https://buscard-caiosdeo.vercel.app/"
+  },
   {
     title: "Posts & Comments API",
     description:

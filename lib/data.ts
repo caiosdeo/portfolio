@@ -6,6 +6,7 @@ import takingnotesImg from "@/public/taking-notes.png";
 import pcbuildmonitorImg from "@/public/pc-build-monitor.png";
 import ecommerceadminImg from "@/public/e-commerce-admin.png";
 import postsCommentsApi from "@/public/post-comments-api.png";
+import buscard from "@/public/buscard.png";
 
 export const links = [
   {
@@ -63,6 +64,14 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "Bus Card",
+    description:
+      "A web app for managing bus ticket cards. Its purpose is enabling the user to calculate accurate credit recharges and check their balance.",
+    tags: ["Next.js", "TypeScript", "MongoDB", "Clerk", "Tailwind"],
+    imageUrl: buscard,
+    url: "https://buscard-caiosdeo.vercel.app/"
+  },
+  {
     title: "Posts & Comments API",
     description:
       "A RESTful API with endpoints for posts creation, update, delete and listing. As well as comments creation and deletion on posts.",
@@ -94,7 +103,6 @@ export const projectsData = [
     imageUrl: pcbuildmonitorImg,
     url: "https://github.com/caiosdeo/pc-build-monitor"
   },
-
 ] as const;
 
 export const skillsData = [
