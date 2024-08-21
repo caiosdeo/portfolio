@@ -7,6 +7,7 @@ import pcbuildmonitorImg from "@/public/pc-build-monitor.png";
 import ecommerceadminImg from "@/public/e-commerce-admin.png";
 import postsCommentsApi from "@/public/post-comments-api.png";
 import buscard from "@/public/buscard.png";
+import equipmentsApi from "@/public/equipments-api.png"
 
 export const links = [
   {
@@ -63,6 +64,14 @@ export const experiencesData = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "Equipments API",
+    description:
+      "A Django RESTful API with endpoints for equipments creation, update, delete and listing. It has an front-end application as well.",
+    tags: ["Django", "Django Rest Framework", "Javascript", "Python", "HTML", "Bootstrap"],
+    imageUrl: equipmentsApi,
+    url: "https://github.com/caiosdeo/api-equipamentos"
+  },
   {
     title: "Bus Card",
     description:
