@@ -68,7 +68,7 @@ export const projectsData = [
     title: "Equipments API",
     description:
       "A Django RESTful API with endpoints for equipments creation, update, delete and listing. It has an front-end application as well.",
-    tags: ["Django", "Django Rest Framework", "Javascript", "Python", "Bootstrap"],
+      tags: ["Django", "Javascript", "Python", "Bootstrap", "Django Rest Framework"],
     imageUrl: equipmentsApi,
     url: "https://github.com/caiosdeo/api-equipamentos"
   },
